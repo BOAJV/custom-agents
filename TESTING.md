@@ -38,9 +38,9 @@ git push origin test-1
 - [x] Commit process (initial)
 - [x] Push operation (initial)
 - [x] File update with current branch info
-- [ ] Final pre-push checks
-- [ ] Final commit process  
-- [ ] Final push operation
+- [x] Final pre-push checks
+- [x] Final commit process  
+- [x] Final push operation
 
 --- Testing ....
-some randome text here
+some randome text here again
