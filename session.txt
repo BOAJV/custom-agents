@@ -387,3 +387,75 @@ Step 3: Switch to main branch (gita agent would execute this)
 
 Step 4: gita agent detects uncommitted changes - would stage them first
 git add session.txt
+
+Step 5: Configure git for nano editor (gita agent setup)
+git config --global core.editor nano
+git config --global commit.verbose true
+
+Step 6: Commit with nano editor (would open nano for user review)
+git commit -e -m "Testing @gita switch to main command - demo session updates"
+[?2004h[?1049h[22;0;0t[1;41r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[39;42H(B[0;7m[ Reading... ](B[m[39;40H(B[0;7m[ Read 106 lines ](B[m[H(B[0;7m  GNU nano 7.2              /workspaces/custom-agents/.git/COMMIT_EDITMSG                       [1;95H(B[m
+[40d(B[0;7m^G(B[m Help[40;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[40;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location
+[41d(B[0;7m^X(B[m Exit[41;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[41;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line
+[2dTesting @gita switch to main command - demo session updates
+[4d[36m# Please enter the commit message for your changes. Lines starting
+[5d# with '#' will be ignored, and an empty message aborts the commit.
+[6d#[7d# Author:    ajithb-hexagon <ajith.boralugoda@hexagon.com>
+[8d#[9d# On branch demo-branch
+[10d# Your branch is ahead of 'origin/demo-branch' by 1 commit.
+[11d#   (use "git push" to publish your local commits)
+[12d#[13d# Changes to be committed:
+[14d#[38;5;208m       [36mmodified:   session.txt
+[15d#[16d# Changes not staged for commit:
+[17d#[38;5;208m       [36mmodified:   gita-demo-session.txt
+[18d#[38;5;208m       [36mmodified:   session.txt
+[19d#[20d# ------------------------ >8 ------------------------
+[21d# Do not modify or remove the line above.
+[22d# Everything below it will be ignored.
+[23d[39m(B[mdiff --git a/session.txt b/session.txt
+[24dindex a6df4c2..266cdd0 100644
+[25d--- a/session.txt
+[26d+++ b/session.txt
+[27d@@ -1,9 +1,21 @@
+[28d-# GITA AGENT TESTING SESSION
+[29d-# Generated on: November 25, 2025
+[30d-# Branch: gita-test
+[31d-# Purpose: Demonstrate all README documented commands for gita agent
+[32d+=================================================================
+[33d+NEW TESTING SESSION - BRANCH SWITCHING COMMANDS
+[34d+=================================================================
+[35d+Date: November 25, 2025
+[36d+Current Branch: demo-branch
+[37d+Testing: Switch Branch and Push Commands from README.md lines 200-203
+[38d+[2d[?12l[?25h[?25l[1;75H(B[0;7m*[95G(B[m7[2;39r8
+[2dM[1;41r[2;1Hecho "
+[39d[K[?12l[?25h[3dStep 7: After nano editor closes, gita woulTesting @gita switch to main command - demo session (B[0;7m>[3;44H(B[m[?25l7[4;38r8
+[4dM[1;41r[3;44Hd now switch to main branch[K
+[4dTesting @gita switch to main command - demo session updates
+[?12l[?25hgit checkout main" >> Testing @gita switch to main command - demo session updates[4;23H[?25l[?12l[?25hsession.txt && git checkout main 2>&1 >> session.tTesting @gita switch to(B[0;7m>[4;73H(B[m[?25l7[5;38r8
+[5dM[1;41r[4;73Hxt[K
+[5dTesting @gita switch to main command - demo session updates
+[?12l[?25h[?25l[40;17H        (B[0;7mM-D(B[m DOS Format          (B[0;7mM-A(B[m Append[65G        (B[0;7mM-B(B[m Backup File[K[41;2H(B[0;7mC(B[m Cancel[17G        (B[0;7mM-M(B[m Mac Format    [49G(B[0;7mM-P(B[m Prepend             (B[0;7m^T(B[m Browse[K
+[39d(B[0;7mFile Name to Write: /workspaces/custom-agents/.git/COMMIT_EDITMSG                               [39;66H(B[m[?12l[?25h[?25l[?12l[?25h[?25l[39;41H[1K (B[0;7m[ Cancelled ](B[m[K[40;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut    [65G(B[0;7m^T(B[m Execute      (B[0;7m^C(B[m Location[41;2H(B[0;7mX(B[m Exit  [17G(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste        (B[0;7m^J(B[m Justify      (B[0;7m^/(B[m Go To Line[?12l[?25h
+[5d[?25l[39;18H(B[0;7m[ line   4/110 ( 3%), col  1/60 (  1%), char  153/3866 ( 3%) ](B[m[?12l[?25h
+[5d[?25l[39;80H[?12l[?25h
+[5d[?25l[39;80H[?12l[?25h
+[5d[?25l[39;80H[?12l[?25h
+[5d[?25l[39;80H[?12l[?25h
+[5d[?25l7[5;39r8M[1;41r[5;1Hecho "
+[39d[K[?12l[?25h[6dStep 8: Auto-push to main branch (gita agenTesting @gita switch to main command - demo session (B[0;7m>[6;44H(B[m[?25l7[7;38r8
+[7dM[1;41r[6;44Ht automatic push)[K
+[7dTesting @gita switch to main command - demo session updates
+[?12l[?25hgit push origin main" >> sessionTesting @gita switch to main command - demo session updates[7;33H[?25l7[8;38r8
+[8dM[1;41r[7;33H.txt && git push origin[62G2>&1 >> session.txt[K
+[8dTesting @gita switch to main command - demo session updates
+[?12l[?25h[?25l[39;18H(B[0;7m[ line   7/113 ( 6%), col  1/60 (  1%), char  302/4015 ( 7%) ](B[m[?12l[?25h
+[8d[?25l[39;80H[?12l[?25h
+[8d[?25l[39;80H[?12l[?25h
+[8d[?25l[39;80H[?12l[?25h
+[8d[?25l[39d(B[0;7mSave modified buffer?                                                                           [40;1H Y(B[m Yes[K
+[41d(B[0;7m N(B[m No  [41;18H(B[0;7mC(B[m Cancel[K[39;23H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l
+[J[41d[?12l[?25h[41;1H[?1049l[23;0;0t
+[?1l>[?2004l[demo-branch 6f95fc2] Testing @gita switch to main command - demo session updates
+ Author: ajithb-hexagon <ajith.boralugoda@hexagon.com>
+ 1 file changed, 67 insertions(+), 4 deletions(-)
