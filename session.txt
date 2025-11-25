@@ -1,9 +1,21 @@
-# GITA AGENT TESTING SESSION
-# Generated on: November 25, 2025
-# Branch: gita-test
-# Purpose: Demonstrate all README documented commands for gita agent
+=================================================================
+NEW TESTING SESSION - BRANCH SWITCHING COMMANDS
+=================================================================
+Date: November 25, 2025  
+Current Branch: demo-branch
+Testing: Switch Branch and Push Commands from README.md lines 200-203
+
+Commands to test:
+- @gita switch to main and push my changes
+- @gita change to development branch and push  
+- @gita move to feature/api branch and commit
 
 =================================================================
+COMMAND 1: @gita switch to main and push my changes
+=================================================================
+
+Step 1: Branch Discovery (what gita would show)
+Current branches available:
 GITA AGENT COMMAND TESTING SESSION
 =================================================================
 
@@ -324,3 +336,54 @@ This demonstrates the complete gita agent workflow:
 =================================================================
 END OF DEMONSTRATION SESSION
 =================================================================
+
+=================================================================
+NEW TESTING SESSION - BRANCH SWITCHING COMMANDS
+=================================================================
+Date: November 25, 2025  
+Current Branch: demo-branch
+Testing: Switch Branch and Push Commands from README.md lines 200-203
+
+Commands to test:
+- @gita switch to main and push my changes
+- @gita change to development branch and push  
+- @gita move to feature/api branch and commit
+
+=================================================================
+
+COMMAND 1: @gita switch to main and push my changes
+=================================================================
+
+Step 1: Branch Discovery (what gita would show)
+Current branches available:
+  custom-agent-test
+* demo-branch
+  gita-test
+  main
+  test-1
+  testing-agent
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/custom-agent-test
+  remotes/origin/demo-branch
+  remotes/origin/gita-test
+  remotes/origin/main
+  remotes/origin/test-1
+  remotes/origin/testing-agent
+
+Step 2: Current Git Status Check
+On branch demo-branch
+Your branch is ahead of 'origin/demo-branch' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   gita-demo-session.txt
+	modified:   session.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Step 3: Switch to main branch (gita agent would execute this)
+
+Step 4: gita agent detects uncommitted changes - would stage them first
+git add session.txt
