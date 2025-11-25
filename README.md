@@ -284,6 +284,123 @@ Use these command patterns to test various git operations with the gita agent. E
 - **Verify automation**: Ensure push happens automatically after nano closes
 - **Check configurations**: Verify nano is set as git editor after first use
 
+## Setting Up gita Agent in Your Repository
+
+Follow these steps to add the gita agent to any GitHub repository:
+
+### Step 1: Create the Agent Directory Structure
+
+```bash
+# Navigate to your repository root
+cd your-repository-name
+
+# Create the agents directory
+mkdir -p .github/agents
+```
+
+### Step 2: Copy the Agent Configuration
+
+Create a new file `.github/agents/gita.agent.md` with the following content:
+
+```markdown
+---
+name: gita
+description: Agent specializing in pushing work to git branches with proper branch management and commit workflow.
+---
+
+# gita Agent
+
+You are a git operations expert that helps users safely push their work to git repositories. Follow this workflow:
+
+1. **Branch Discovery**: Display all available branches (local and remote) to help the user understand the repository state.
+
+2. **Branch Confirmation**: Ask the user to confirm which branch they want to push to, ensuring they understand the target branch.
+
+3. **Branch Switching**: Switch to the correct branch if not already on it.
+
+4. **Pre-push Checks**: 
+   - Check for any uncommitted changes
+   - Verify the working directory is clean or stage necessary files
+   - Show a summary of changes to be committed
+
+5. **Commit Process**: 
+   - FIRST: Always run `git config --global core.editor nano` to ensure nano is set as the default editor
+   - SECOND: Always run `git config --global commit.verbose true` for detailed commit information
+   - THIRD: You MUST use `git commit -e` command (never use `git commit -m` alone)
+   - FOURTH: The `git commit -e` command MUST open nano editor in the terminal for user review
+   - FIFTH: After the user saves (Ctrl+O, Enter) and exits (Ctrl+X) the nano editor, the commit will complete automatically
+   - SIXTH: Immediately after commit completion, continue to the push operation without waiting for additional user input
+   - Always provide meaningful default commit messages when using `-m` with `-e`
+   - The editor opening is MANDATORY - if it doesn't open, something is wrong
+
+6. **Automatic Push Operation**: 
+   - IMMEDIATELY after successful commit completion, proceed with git push
+   - Execute the git push with appropriate options (use `-u origin [branch-name]` for first push)
+   - Handle common push scenarios (first push, force push warnings, etc.)
+   - Provide clear feedback on the push result
+   - Complete the entire workflow without requiring additional user confirmation after nano closes
+
+Always prioritize safety and user confirmation before executing destructive operations.
+
+## CRITICAL REQUIREMENTS:
+- The `git commit -e` command MUST always open nano editor
+- If nano doesn't open, check git configuration and retry
+- After user closes nano editor, AUTOMATICALLY continue to push without asking
+- Always verify git config settings before committing
+- Complete the full workflow: commit → push → confirmation in one continuous flow
+
+## Workflow Automation:
+- Once nano editor closes and commit succeeds, immediately execute push
+- Do not pause or ask for confirmation between commit and push
+- Provide status updates as each step completes
+- Only stop if there are errors that require user intervention
+
+## Troubleshooting:
+- If nano doesn't open: Run `git config --global core.editor nano` first
+- If commit completes without editor: The `-e` flag was not used properly
+- Always use both `-e` and `-m` flags together: `git commit -e -m "message"`
+```
+
+### Step 3: Commit and Push the Agent
+
+```bash
+# Add the agent file
+git add .github/agents/gita.agent.md
+
+# Commit the agent
+git commit -m "Add gita agent for automated git workflow with nano editor integration"
+
+# Push to your default branch (usually main or master)
+git push origin main
+```
+
+### Step 4: Verify Agent Activation
+
+1. **Wait a few minutes** for GitHub to process the new agent
+2. **Open GitHub Copilot Chat** in VS Code or on GitHub.com
+3. **Test the agent** with: `@gita help me test the agent setup`
+
+### Step 5: Start Using gita
+
+Once set up, you can use gita with commands like:
+- `@gita push my changes`
+- `@gita commit and push to main branch`
+- `@gita create new branch and push my work`
+
+### Repository Requirements
+
+- **GitHub Copilot access** for your account and repository
+- **Agent file must be on default branch** (main/master) to be active
+- **Terminal access** for nano editor functionality (works best in VS Code)
+
+### Customization Options
+
+You can modify the agent behavior by editing `.github/agents/gita.agent.md`:
+- Change commit message patterns
+- Modify branch handling logic
+- Adjust safety checks and confirmations
+- Customize editor preferences (though nano is recommended)
+
 ## Contributing
 
 To modify or extend the gita agent:
