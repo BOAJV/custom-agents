@@ -4,19 +4,21 @@ This repository contains custom GitHub Copilot agents designed to enhance your d
 
 ## Available Agents
 
-### 🚀 git-push Agent
+### 🌟 gita Agent
 
-A specialized agent for safely managing git push operations with proper branch management and commit workflow.
+A specialized git operations expert that helps you safely push your work to git repositories with automated workflow and nano editor integration.
 
-#### What it does:
-- **Branch Discovery**: Shows all available branches (local and remote)
-- **Branch Confirmation**: Ensures you're pushing to the correct target branch
-- **Branch Switching**: Safely switches branches when needed
-- **Pre-push Checks**: Verifies working directory state and shows change summaries
-- **Commit Process**: Helps create meaningful commit messages with user review
-- **Push Operations**: Handles various push scenarios with safety checks
+#### What gita does:
+- **Branch Discovery**: Shows all available branches (local and remote) with current status
+- **Branch Confirmation**: Ensures you're pushing to the correct target branch with safety checks
+- **Branch Switching**: Automatically switches branches when needed
+- **Pre-push Checks**: Verifies working directory state and stages necessary files
+- **Automated Commit Process**: Opens nano editor for commit message review with automatic continuation
+- **Seamless Push Operations**: Automatically pushes after commit completion without additional prompts
+- **Nano Editor Integration**: Specifically configured to use nano for commit message editing
+- **Continuous Workflow**: Complete commit → push → confirmation flow in one operation
 
-## How to Use the git-push Agent
+## How to Use the gita Agent
 
 ### Prerequisites
 - Access to GitHub Copilot Chat
@@ -26,108 +28,172 @@ A specialized agent for safely managing git push operations with proper branch m
 
 #### 1. GitHub Copilot Chat in VS Code (Recommended)
 1. Open GitHub Copilot Chat (`Ctrl+Shift+I` or `Cmd+Shift+I`)
-2. Type `@git-push` followed by your request
-3. The agent will guide you through the safe git workflow
+2. Type `@gita` followed by your request
+3. The agent will guide you through the automated git workflow with nano editor
 
 **Example interactions:**
 ```
-@git-push help me push my current changes to the main branch
+@gita help me push my current changes to the main branch
 
-@git-push I need to create a new feature branch and push my work
+@gita I need to create a new feature branch and push my work
 
-@git-push can you help me safely push to the development branch?
+@gita can you help me safely push to the development branch?
 
-@git-push show me all branches and help me push to the right one
+@gita show me all branches and push my changes automatically
+
+@gita commit and push my changes with nano editor review
 ```
 
 #### 2. GitHub Copilot Chat on GitHub.com
 1. Navigate to your repository on GitHub.com
 2. Open the Copilot Chat interface
-3. Mention `@git-push` in your message
-4. Ask for help with your git operations
+3. Mention `@gita` in your message
+4. Ask for help with your automated git operations
 
-#### 3. General Git Workflow with the Agent
-The agent follows a structured workflow:
+#### 3. Automated Git Workflow with gita Agent
+The gita agent follows a streamlined, automated workflow:
 
 1. **Branch Discovery Phase**
-   - Shows local and remote branches
-   - Displays current branch status
+   - Shows local and remote branches with current status
+   - Displays uncommitted changes and repository state
 
-2. **Target Confirmation Phase**
-   - Asks you to confirm the target branch
-   - Warns about potential issues
+2. **Target Branch Confirmation**
+   - Confirms the target branch for your push operation
+   - Automatically switches branches if needed
 
 3. **Pre-push Safety Checks**
-   - Checks for uncommitted changes
-   - Shows summary of changes to be committed
-   - Verifies working directory state
+   - Stages uncommitted changes automatically
+   - Configures nano as the default git editor
+   - Enables verbose commit mode for detailed information
 
-4. **Commit Review Phase**
-   - Helps craft meaningful commit messages
-   - Allows review before committing
-   - Provides default messages when appropriate
+4. **Nano Editor Commit Phase**
+   - Opens nano editor with `git commit -e` command
+   - Provides meaningful default commit message
+   - Waits for you to review/edit in nano (Ctrl+O to save, Ctrl+X to exit)
+   - **Automatically continues** after you close nano
 
-5. **Push Execution Phase**
-   - Executes git push with appropriate options
-   - Handles first push, force push warnings, etc.
-   - Provides clear feedback on results
+5. **Automatic Push Execution**
+   - Immediately pushes to target branch after successful commit
+   - Handles first push scenarios with upstream tracking
+   - Provides clear feedback on push results
+   - **No additional user input required** after nano closes
+
+### Key Features of gita's Automated Workflow
+
+#### ✨ Nano Editor Integration
+- Specifically configured to use nano for all commit message editing
+- Automatically sets `git config --global core.editor nano`
+- Forces interactive commit review with `git commit -e`
+
+#### ⚡ Continuous Automation
+- **Zero interruption**: After you close nano, everything happens automatically
+- **Seamless flow**: commit → push → confirmation without stops
+- **Status reporting**: Real-time updates throughout the process
+
+#### 🛡️ Safety with Speed
+- All safety checks happen upfront
+- User reviews commit message in nano
+- Automatic execution only after user confirmation via nano
 
 ### Example Scenarios
 
-#### Scenario 1: First time pushing a new feature
+#### Scenario 1: Quick push with automated workflow
 ```
-You: @git-push I've been working on a new login feature and need to push it
-Agent: I'll help you safely push your login feature. Let me first check your current branch status...
-```
-
-#### Scenario 2: Pushing to an existing branch
-```
-You: @git-push push my changes to the development branch
-Agent: I'll help you push to the development branch. First, let me show you the current state...
+You: @gita push my login feature changes
+Agent: I'll help you push your login feature with the automated workflow. 
+       Let me check your branches and set up nano for commit review...
+       [Opens nano for commit message] → [Auto-push after you close nano]
 ```
 
-#### Scenario 3: When you're unsure about branches
+#### Scenario 2: New feature branch with seamless push
 ```
-You: @git-push I'm not sure which branch to push to, can you help?
-Agent: Of course! Let me show you all available branches and help you choose the right one...
+You: @gita create a new branch and push my work
+Agent: I'll create a new branch and push your changes automatically.
+       [Sets up branch] → [Opens nano] → [Auto-push] → [Sets upstream tracking]
 ```
+
+#### Scenario 3: Automated push to existing branch
+```
+You: @gita commit and push to development branch
+Agent: I'll automate the commit and push to development.
+       [Switches to dev] → [Stages changes] → [Opens nano] → [Auto-push]
+```
+
+## Key Advantages of gita Agent
+
+### 🚀 **Speed & Automation**
+- **One command**: Complete git workflow in a single interaction
+- **Nano integration**: Familiar editor for commit message review
+- **Auto-continuation**: No manual steps after nano closes
+- **Instant feedback**: Real-time status throughout the process
+
+### 🛡️ **Safety & Control**
+- **Review point**: You control the commit message in nano
+- **Safety checks**: Automatic verification before operations
+- **Branch awareness**: Always confirms target branch
+- **Error handling**: Clear guidance when issues occur
+
+### ⚙️ **Technical Features**
+- **Nano-first**: Specifically optimized for nano editor users
+- **Git config automation**: Automatically configures optimal settings
+- **Verbose commits**: Enhanced commit information display
+- **Upstream tracking**: Handles first-time branch pushes correctly
 
 ## Safety Features
 
-The git-push agent prioritizes safety with:
-- ✅ **Confirmation before destructive operations**
-- ✅ **Clear status reporting at each step**
-- ✅ **Branch verification before switching**
-- ✅ **Working directory checks**
-- ✅ **Meaningful commit message guidance**
-- ✅ **Force push warnings and alternatives**
+The gita agent combines automation with safety:
+- ✅ **Nano editor review**: Always opens nano for commit message confirmation
+- ✅ **Pre-flight checks**: Verifies repository state before operations
+- ✅ **Branch verification**: Confirms target branch before switching
+- ✅ **Automatic staging**: Handles uncommitted changes intelligently
+- ✅ **Clear status updates**: Reports progress at each automation step
+- ✅ **Error recovery**: Provides guidance when automation encounters issues
+- ✅ **No surprise pushes**: User must close nano to trigger the push
 
 ## Agent Configuration
 
-The agent is configured in `.github/agents/git-push.agent.md` and includes:
-- Specialized knowledge of git workflows
-- Safety-first approach to git operations
-- User-friendly guidance and confirmations
-- Handling of common git scenarios
+The gita agent is configured in `.github/agents/gita.agent.md` with:
+- **Nano editor specialization**: Optimized workflow for nano users
+- **Automated continuation logic**: Smart workflow that continues after user input
+- **Git configuration management**: Automatic setup of optimal git settings
+- **Safety-first automation**: Combines speed with user control
+- **Verbose commit support**: Enhanced commit information and review
+
+### Critical Requirements Built Into gita:
+- **Mandatory nano usage**: All commits must go through nano review
+- **Automatic continuation**: Workflow continues without prompts after nano closes
+- **Git config automation**: Sets nano as editor and enables verbose commits
+- **Continuous flow design**: Optimized for uninterrupted commit → push workflow
 
 ## Contributing
 
-To modify or extend the git-push agent:
-1. Edit `.github/agents/git-push.agent.md`
-2. Test your changes using the methods above
-3. Submit a pull request with your improvements
+To modify or extend the gita agent:
+1. Edit `.github/agents/gita.agent.md`
+2. Test the automated workflow using the methods above
+3. Ensure nano editor integration works properly
+4. Submit a pull request with your improvements
 
 ## Troubleshooting
 
-**Agent not responding?**
-- Ensure the agent file is merged to the default branch
-- Try mentioning `@git-push` explicitly in your message
+**Agent not responding to @gita?**
+- Ensure the agent file is merged to the default branch (main)
+- Try mentioning `@gita` explicitly in your message
 - Check that you have GitHub Copilot access
 
+**Nano editor not opening during commits?**
+- gita automatically configures git to use nano
+- If issues persist, manually run: `git config --global core.editor nano`
+- The agent will detect and fix configuration issues
+
+**Workflow stops after nano?**
+- Ensure you properly save (Ctrl+O) and exit (Ctrl+X) nano
+- The automated push should happen immediately after nano closes
+- Check for any git errors in the terminal output
+
 **Need help with complex git scenarios?**
-- Be specific about your current situation
-- Mention what branch you're on and what you want to achieve
-- The agent can handle most common git workflows
+- Be specific about your current branch and desired target
+- Mention what changes you want to commit and push
+- gita handles most scenarios automatically but can adapt to special cases
 
 ---
 
