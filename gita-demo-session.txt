@@ -1,0 +1,68 @@
+# GITA AGENT DEMONSTRATION SESSION
+# Date: November 25, 2025
+# Branch: gita-test
+# Purpose: Execute actual @gita commands from README and document results
+
+=================================================================
+EXECUTING ACTUAL @GITA COMMANDS FROM README
+=================================================================
+
+This session demonstrates running the exact commands documented in the README.md file.
+Each command will be executed as if using the @gita agent in GitHub Copilot Chat.
+=================================================================
+COMMAND 1: Creating a new branch (simulating: @gita create new branch demo-branch and push)
+=================================================================
+
+Command: @gita create new branch demo-branch and push
+
+Gita agent would execute:
+
+Switched to a new branch 'demo-branch'
+
+=================================================================
+COMMAND 2: Push current changes (simulating: @gita push my changes)
+=================================================================
+
+Command: @gita push my changes
+
+Gita agent workflow:
+1. Branch discovery:
+  custom-agent-test
+* demo-branch
+  gita-test
+  main
+  test-1
+  testing-agent
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/custom-agent-test
+  remotes/origin/gita-test
+  remotes/origin/main
+  remotes/origin/test-1
+  remotes/origin/testing-agent
+
+2. Change detection:
+On branch demo-branch
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   session.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	gita-demo-session.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+3. Git configuration setup:
+git config --global core.editor nano
+git config --global commit.verbose true
+
+4. Staging changes:
+git add gita-demo-session.txt
+
+5. Commit with nano editor (would open nano for review):
+git commit -e -m "Demonstrate @gita push my changes command
+
+- Created demo-branch for gita agent demonstration
+- Added gita-demo-session.txt with actual command examples
+- Showing complete workflow: branch creation → staging → commit → push"
