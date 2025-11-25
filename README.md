@@ -165,6 +165,125 @@ The gita agent is configured in `.github/agents/gita.agent.md` with:
 - **Git config automation**: Sets nano as editor and enables verbose commits
 - **Continuous flow design**: Optimized for uninterrupted commit → push workflow
 
+## Testing the gita Agent
+
+Use these command patterns to test various git operations with the gita agent. Each command will trigger the automated nano editor workflow.
+
+### Basic Operations
+
+#### Simple Push to Current Branch
+```
+@gita push my changes
+@gita commit and push current work
+@gita save my progress to this branch
+```
+
+#### Push to Specific Branch
+```
+@gita push to main branch
+@gita commit and push to development
+@gita push my changes to feature/login
+@gita push to origin/staging
+```
+
+### Branch Management
+
+#### Create New Branch and Push
+```
+@gita create new branch feature/payment and push
+@gita make a new branch called bugfix/auth-error
+@gita create branch hotfix/security-patch and push my work
+```
+
+#### Switch Branch and Push
+```
+@gita switch to main and push my changes
+@gita change to development branch and push
+@gita move to feature/api branch and commit
+```
+
+### Advanced Scenarios
+
+#### First Time Push (Upstream Tracking)
+```
+@gita push my new branch for the first time
+@gita set up upstream and push to origin
+@gita push new feature branch with tracking
+```
+
+#### Multiple File Operations
+```
+@gita commit all my changes and push
+@gita stage everything and push to main
+@gita add all modified files and push
+```
+
+#### Specific File Operations
+```
+@gita commit README.md and push
+@gita push only the config changes
+@gita commit src/ directory changes and push
+```
+
+### Project-Specific Commands
+
+#### Feature Development
+```
+@gita push my login feature implementation
+@gita commit the user authentication changes
+@gita push database migration updates
+@gita commit API endpoint modifications
+```
+
+#### Bug Fixes
+```
+@gita push the security vulnerability fix
+@gita commit memory leak patch
+@gita push performance optimization changes
+```
+
+#### Documentation Updates
+```
+@gita push documentation improvements
+@gita commit README updates
+@gita push changelog modifications
+```
+
+### Complex Workflow Testing
+
+#### Multi-step Operations
+```
+@gita check branches, commit changes, and push to development
+@gita show me branches then push my work to the right one
+@gita verify my changes and push to main safely
+```
+
+#### Conflict Resolution Scenarios
+```
+@gita help me push after resolving conflicts
+@gita commit merge resolution and push
+@gita push after fixing merge issues
+```
+
+### Expected Workflow for All Commands
+
+1. **Branch Discovery**: gita shows current and available branches
+2. **Change Detection**: Identifies modified, added, or deleted files
+3. **Staging**: Automatically stages changes for commit
+4. **Git Config**: Sets nano editor and verbose commit mode
+5. **Nano Opens**: You review/edit commit message in nano
+6. **Save & Exit**: Ctrl+O to save, Ctrl+X to exit nano
+7. **Auto-Push**: Immediate push after successful commit
+8. **Confirmation**: Status report of completed operation
+
+### Testing Tips
+
+- **Make some changes**: Modify files before testing push commands
+- **Try different branches**: Test switching and pushing to various branches
+- **Test edge cases**: Empty commits, large files, special characters in messages
+- **Verify automation**: Ensure push happens automatically after nano closes
+- **Check configurations**: Verify nano is set as git editor after first use
+
 ## Contributing
 
 To modify or extend the gita agent:
