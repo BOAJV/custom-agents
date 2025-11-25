@@ -66,3 +66,48 @@ git commit -e -m "Demonstrate @gita push my changes command
 - Created demo-branch for gita agent demonstration
 - Added gita-demo-session.txt with actual command examples
 - Showing complete workflow: branch creation → staging → commit → push"
+
+6. Push with upstream tracking (first time push):
+git push -u origin demo-branch
+remote: 
+remote: Create a pull request for 'demo-branch' on GitHub by visiting:        
+remote:      https://github.com/BOAJV/custom-agents/pull/new/demo-branch        
+remote: 
+To https://github.com/BOAJV/custom-agents
+ * [new branch]      demo-branch -> demo-branch
+branch 'demo-branch' set up to track 'origin/demo-branch'.
+
+=================================================================
+COMMAND 3: Commit and push to specific branch (@gita commit and push to main)
+=================================================================
+
+Command: @gita commit and push to main
+
+Gita agent workflow:
+1. Switch to main branch:
+error: Your local changes to the following files would be overwritten by checkout:
+	gita-demo-session.txt
+	session.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+   (Note: gita would handle uncommitted changes by staging them first)
+
+2. Go back to demo branch to continue demonstration:
+Already on 'demo-branch'
+M	gita-demo-session.txt
+M	session.txt
+Your branch is up to date with 'origin/demo-branch'.
+
+=================================================================
+COMMAND 4: Save progress to current branch (@gita save my progress to this branch)
+=================================================================
+
+Command: @gita save my progress to this branch
+
+Gita agent workflow:
+1. Current branch status:
+demo-branch
+
+2. Stage all changes:
+git add -A
